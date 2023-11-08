@@ -25,6 +25,7 @@ public class IdentityConfiguration
         new List<ApiScope>
         {
                 // vshop é aplicação web que vai acessar
+
                 // o IdentityServer para obter o token
                 new ApiScope("vshop", "VShop Server"),
                 new ApiScope(name: "read", "Read data."),
