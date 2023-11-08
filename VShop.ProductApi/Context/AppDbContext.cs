@@ -20,7 +20,7 @@ namespace VShop.ProductApi.Context
                  Property(c => c.Name).
                    HasMaxLength(100).
                         IsRequired();
-
+                
             //Product
             mb.Entity<Product>().
                Property(c => c.Name).

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
@@ -52,8 +53,10 @@ builder.Services.AddSwaggerGen(c =>
 var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-                  options.UseMySql(mySqlConnection,
-                    ServerVersion.AutoDetect(mySqlConnection)));
+{
+    options.UseSqlServer(mySqlConnection);
+}, ServiceLifetime.Scoped);
+
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
